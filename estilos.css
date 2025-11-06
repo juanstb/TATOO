@@ -1,0 +1,340 @@
+/* -- CSS Inspirado en tu Imagen de Referencia -- */
+
+/* Paleta de Colores */
+:root {
+    --bg-dark: #1A1A1A; /* Fondo oscuro principal */
+    --text-light: #E0E0E0; /* Texto claro */
+    --accent-color: #ee3c33; /* Rojo vibrante como acento */
+    --nav-hover: #555555; /* Color para hover en navegación */
+    --border-grey: #333333; /* Gris para bordes o líneas sutiles */
+}
+
+/* Base */
+body {
+    font-family: 'Roboto', sans-serif; /* Usaremos Roboto como ejemplo, puedes cambiarla */
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden; /* Previene scroll horizontal si hay elementos fuera */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--text-light);
+}
+
+/* Header y Navegación */
+header {
+    background-color: var(--bg-dark);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-grey); /* Línea sutil como en el ejemplo */
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+nav a {
+    color: var(--text-light);
+    margin: 0 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+nav a::after { /* Efecto de subrayado al pasar el ratón */
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Secciones */
+section {
+    padding: 80px 40px;
+    text-align: left; /* Alineación a la izquierda como en el ejemplo */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Para posibles elementos de fondo */
+    min-height: 400px; /* Para que tengan un espacio mínimo */
+}
+
+h2 {
+    color: var(--accent-color); /* Títulos de sección en color de acento */
+    margin-bottom: 20px;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1.1em;
+    color: #b0b0b0;
+    max-width: 700px; /* Limita el ancho del párrafo para mayor legibilidad */
+}
+
+/* -- Sección "Acerca de Mí" -- */
+#acerca {
+    background-color: var(--bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* Para que se adapte en móviles */
+}
+
+#acerca .content {
+    flex: 2;
+    min-width: 300px;
+}
+
+#acerca .image-placeholder {
+    flex: 1;
+    min-width: 250px;
+    height: 400px;
+    background-color: var(--border-grey); /* Placeholder para imagen lateral */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: var(--nav-hover);
+}
+
+blockquote#filosofia {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 30px;
+    font-size: 1.3em;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 20px;
+}
+
+/* -- Sección "Mis Estilos" -- */
+#estilos {
+    background-color: var(--bg-dark);
+    text-align: center; /* Centramos esta sección para los "botones" de estilo */
+}
+
+#estilos h2 {
+    color: var(--text-light); /* Los títulos de sección los ponemos en blanco */
+}
+
+.lista-estilos {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.estilo {
+    background-color: var(--border-grey);
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.estilo:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* -- Sección "Portafolio/Galería" -- */
+#portafolio {
+    background-color: #222222; /* Ligeramente más claro que el fondo oscuro */
+}
+
+#portafolio h2 {
+    color: var(--text-light);
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+}
+
+.tatuaje-item {
+    background-color: var(--bg-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.tatuaje-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.tatuaje-item img {
+    width: 100%;
+    height: 300px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    display: block;
+    border-bottom: 2px solid var(--border-grey);
+}
+
+.tatuaje-item figcaption {
+    padding: 15px;
+    font-size: 0.95em;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* -- Footer -- */
+
+footer {
+    background-color: #0D0D0D;
+    color: #777;
+    
+    /* 1. Usamos FLEXBOX para la alineación */
+    display: flex;
+    justify-content: space-between; /* Esto separa los elementos a los extremos */
+    align-items: center; /* Centra verticalmente los iconos y el texto */
+    
+    padding: 30px 40px; /* Aumentamos el padding para dar espacio lateral */
+    text-align: left; /* Aunque flexbox maneja la alineación, esto es buena práctica */
+    border-top: 1px solid var(--border-grey);
+}
+
+footer p {
+    color: #777; /* Aseguramos que el texto de copyright mantenga su color */
+    margin: 0; /* Quitamos márgenes innecesarios */
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+/* -- Elementos de Fondo (Simulando la estatua y círculos) -- */
+/* NOTA: Esto es una simulación. Para una imagen real como la estatua, necesitarías
+   una imagen de fondo CSS o un <img> flotante. */
+body::before { /* Círculo grande rojo */
+    content: '';
+    position: fixed;
+    top: -150px; /* Ajusta la posición para que sea visible */
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.1; /* Para que sea sutil */
+    z-index: -1; /* Envía al fondo */
+    filter: blur(100px); /* Desenfoque para un efecto más suave */
+}
+
+body::after { /* Círculo pequeño rojo abajo */
+    content: '';
+    position: fixed;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.08;
+    z-index: -1;
+    filter: blur(80px);
+}
+/* -- ESTILOS PARA REDES SOCIALES (FOOTER) -- */
+
+
+
+/* -- ESTILOS PARA REDES SOCIALES (FOOTER) -- */
+footer .redes-sociales {
+    margin-top: 0; /* Ya no necesitamos margen superior porque está centrado verticalmente */
+    display: flex;
+    gap: 20px;
+}
+
+footer .redes-sociales a {
+    color: var(--text-light); /* Icono en color claro */
+    font-size: 1.8em; /* Tamaño visible */
+    transition: color 0.3s ease;
+}
+
+footer .redes-sociales a:hover {
+    color: var(--accent-color); /* Se ilumina con el color de acento al pasar el ratón */
+}
+
+
+/* -- Media Queries para Responsividad -- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    #acerca .image-placeholder {
+        height: 300px;
+    }
+
+    .lista-estilos {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.8em;
+    }
+
+    nav a {
+        margin: 0 8px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    }
+}
